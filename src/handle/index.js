@@ -8,3 +8,4 @@ export * from './intervalHandle';
 export * from './timeoutHandle';
 export * from './dateAndRandomHandle';
 export * from './ovserver';
+export { default as documentHandle } from './documentHandle'; // 添加此行

@@ -8,6 +8,7 @@ import * as handles from './handle/index';
 
 export default class {
   constructor(config, win = undefined) {
+    console.log('[mysdenv: win1 ] ')
     const self = this;
     Object.assign(this, _merge(
       {},
@@ -19,6 +20,8 @@ export default class {
       }
     ));
     this.setWindow(win);
+    this.setDocument(win.document);
+
     loopRunInit.call(this);
     this.bindThis();
   }
@@ -54,6 +57,12 @@ export default class {
       Object.setPrototypeOf(win.window, win.Window.prototype);
     }
   }
+
+  setDocument(document){
+    this.getHandle('document')()
+
+  }
+
 
   getHandle(name) {
     const handleName = `${name}Handle`;

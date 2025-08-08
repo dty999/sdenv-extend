@@ -1,0 +1,21 @@
+const SdenvExtend = require('../src/index');
+
+describe('documentHandle', () => {
+  let win, sdenv;
+
+  beforeEach(() => {
+    // 初始化测试环境
+    win = { window: { document: {} } };
+    sdenv = new SdenvExtend({}, win);
+    // 激活document句柄
+    // sdenv.extend('document');
+  });
+
+  test('document.all.__proto__.toString() should return [object HTMLAllCollection]', () => {
+    const allProto = Object.getPrototypeOf(win.document.all);
+    const result = allProto.toString();
+    expect(result).toBe('[object HTMLAllCollection]');
+  });
+
+  // 可添加更多测试用例...
+});
